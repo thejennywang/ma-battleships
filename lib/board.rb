@@ -22,7 +22,7 @@ class Board
   	end
 	end
 	
-	def main_hash
+	def grid
 		@hash
 	end
 
