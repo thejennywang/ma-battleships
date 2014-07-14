@@ -12,20 +12,25 @@ When all of one player's ships have been hit the game finishes and the player wh
 Domain Model
 =============
 
+Game Engine
+-----------
+<p>starts game</p>
+<p>prompts player to take their turn</p>
+<p>ends game</p>
+
 BOARD (module)
 ---------------
 <p>has squares when created A1 - J10</p>
+<p>winner?</p>
 
 Personal board
------------------
+--------------
 <p>has ships --player</p>
 <p>take shots --player</p>
 
-
 Tracking board
-----------------
+--------------
 <p>record shots --player</p>
-
 
 Player 
 -------
