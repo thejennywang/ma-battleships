@@ -1,4 +1,4 @@
-battleships
+Battleships
 ===========
 
 Battleships game
