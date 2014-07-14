@@ -38,3 +38,4 @@ Ships
 is_sunk?
 type - battleship, destroyer, cruiser, submarine
 orientation
+position - like A1, B1, C1 or A1, A2, A3
