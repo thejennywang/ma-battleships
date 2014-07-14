@@ -12,6 +12,7 @@ When all of one player's ships have been hit the game finishes and the player wh
 Domain Model
 =============
 
+<<<<<<< HEAD
 BOARD (module)
 ---------------
 has squares when created A1 - J10
@@ -39,3 +40,37 @@ is_sunk?
 type - battleship, destroyer, cruiser, submarine
 orientation
 position - like A1, B1, C1 or A1, A2, A3
+=======
+Game Engine
+-----------
+<p>starts game</p>
+<p>prompts player to take their turn</p>
+<p>ends game</p>
+
+BOARD (module)
+---------------
+<p>has squares when created A1 - J10</p>
+<p>winner?</p>
+
+Personal board
+--------------
+<p>has ships --player</p>
+<p>take shots --player</p>
+
+Tracking board
+--------------
+<p>record shots --player</p>
+
+Player 
+-------
+<p>place ships --ships</p>
+<p>calls shots --board</p>
+<p>announce hit/miss --board</p>
+
+Ships
+-------
+<p>is_sunk?</p>
+<p>type - battleship, destroyer, cruiser, submarine</p>
+<p>orientation</p>
+<p>position</p>
+>>>>>>> 9ccb55b329528e56c26917e09d8e22f7234bca36
