@@ -54,5 +54,4 @@ describe Ship do
     	expect(patrol_boat.length).to eq 2
     end
   end
-
 end

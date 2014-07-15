@@ -38,4 +38,11 @@ describe Board do
     expect(board.vertical(ship, coordinates)).to eq ["A2", "A3"]
   end
 
+  it 'places ships on board with provided coordinates' do
+    ship = double :ship, length: 2
+    coordinates = "A1"
+    board.place(ship,coordinates)
+    expect(board.utyyr)
+  end
+
 end
