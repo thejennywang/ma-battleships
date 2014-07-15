@@ -20,16 +20,22 @@ describe Board do
   	expect(board.tracking).to eq (board.create_grid)
   end
 
+  it 'get the coodinates that the ship take' do
+    ship = double :ship, length: 2
+    coordinates = "A1"
+    expect(board.coordinates_to_take(ship, coordinates)).to eq ["A1", "B1"]
+  end
+
   it 'it can determine the horizontal coordinates providing a ship length and start coordinate' do
-    ship = double :shsip, length: 2
-    coorinates = "B1"
-    expect(board.horizontal(ship, coorinates)).to eq ["B1", "C1"]
+    ship = double :ship, length: 2
+    coordinates = "B1"
+    expect(board.horizontal(ship, coordinates)).to eq ["B1", "C1"]
   end
 
   it 'it can determine the vertical coordinates providing a ship length and start coordinate' do
     ship = double :ship, length: 2
-    coorinates = "A2"
-    expect(board.vertical(ship, coorinates)).to eq ["A2", "A3"]
+    coordinates = "A2"
+    expect(board.vertical(ship, coordinates)).to eq ["A2", "A3"]
   end
 
 end
