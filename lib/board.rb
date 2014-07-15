@@ -15,20 +15,5 @@ class Board
     	end
   	end
 	end
-
-	def coordinates_to_take(ship, coordinates, orientation='h')
-		return horizontal(ship, coordinates) if orientation == 'h'
-		vertical(ship, coordinates)
-	end
-
-	def horizontal(ship, coordinates)
-		coordinate_letter, coordinate_number = coordinates.chars.first, coordinates.chars.last
-		(0...ship.length).map { |number| (coordinate_letter.bytes.first + number).chr + coordinate_number }
-	end
-
-	def vertical(ship, coordinates)
-		coordinate_letter, coordinate_number = coordinates.chars.first, coordinates.chars.last.to_i
-		(0...ship.length).map { |number| coordinate_letter + (coordinate_number + number).to_s }
-	end
 	
 end
