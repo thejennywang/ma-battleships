@@ -24,6 +24,7 @@ describe Ship do
     end
 
     it 'can be created with a certain amount of hits limit' do
+        #reword this test
     	ship = Ship.new(length: 3)
     	expect(ship.length).to eq 3
     end

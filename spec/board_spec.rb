@@ -4,7 +4,9 @@ describe Board do
 
   let(:board) { Board.new }
 
+
   it 'Creates a new grid empty by default' do
+    #this isn't empty?
     board = Board.new
     board.create_grid(2,2)
     expect(board.grid_hash).to eq ({A1: nil, A2: nil, B1: nil, B2: nil})
@@ -21,6 +23,7 @@ describe Board do
   end
 
   it 'get the coodinates that the ship take' do
+    #what about orientation? not tested here.
     ship = double :ship, length: 2
     coordinates = "A1"
     expect(board.coordinates_to_take(ship, coordinates)).to eq ["A1", "B1"]
@@ -39,6 +42,7 @@ describe Board do
   end
 
   it 'places ships on board with provided coordinates' do
+    #this method is unfinished
     ship = double :ship, length: 2
     coordinates = "A1"
     board.place(ship,coordinates)
