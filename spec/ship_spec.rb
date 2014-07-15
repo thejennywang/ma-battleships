@@ -55,28 +55,4 @@ describe Ship do
     end
   end
 
-  context 'after it is assigned coordinates' do
-    it 'can take horizontal coordinates' do
-      ship = Ship.carrier
-      coordinates = "A1"
-      ship.assign_position(coordinates)
-      expect(ship.position).to eq ["A1", "B1", "C1", "D1", "E1"]
-    end
-
-    it 'it can take horizontal coordinates providing a ship length and start coordinate' do
-      ship = Ship.patrol
-      coorinates = "B1"
-      expect(ship.horizontal(coorinates)).to eq ["B1", "C1"]
-    end
-
-    it 'it can take vertical coordinates providing a ship length and start coordinate' do
-      ship = Ship.patrol
-      coorinates = "A2"
-      expect(ship.vertical(coorinates)).to eq ["A2", "A3"]
-    end
-
-    it 'knows its own position' do
-    end
-  end
-
 end

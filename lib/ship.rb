@@ -34,19 +34,4 @@ class Ship
 		new(length: 2)
 	end
 
-	def assign_position(coordinates, orientation='horizontal')
-		@position = horizontal(coordinates) if orientation == 'horizontal'
-		@position = vertical(coordinates) if orientation == 'vertical'
-	end
-
-	def horizontal(coordinates)
-		coordinate_letter, coordinate_number = coordinates.chars.first, coordinates.chars.last
-		(0...length).map { |number| (coordinate_letter.bytes.first + number).chr + coordinate_number }
-	end
-
-	def vertical(coordinates)
-		coordinate_letter, coordinate_number = coordinates.chars.first, coordinates.chars.last.to_i
-		(0...length).map { |number| coordinate_letter + (coordinate_number + number).to_s }
-	end
-
 end
