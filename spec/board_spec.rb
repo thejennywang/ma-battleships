@@ -7,8 +7,8 @@ describe Board do
 
   it 'Creates a new grid empty by default' do
     board = Board.new
-    board.create_grid(2,2)
-    expect(board.grid_hash).to eq ({A1: nil, A2: nil, B1: nil, B2: nil})
+    board.create_grid(1,1)
+    expect(board.grid_hash[:A1]).to be_an_instance_of Cell
   end
 
   it 'it has a personal board created with a default size of 10 x 10' do
