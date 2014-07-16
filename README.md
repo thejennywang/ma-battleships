@@ -1,7 +1,7 @@
 Battleships
 ============
 
-We are building the Battleships game for our 4th week at Makers Academy to further our learning of Object-Orientated Programming. This also the first project where we work int teams. We are the Spartans!
+We are building the Battleships game for our 4th week at Makers Academy to further our learning of Object-Orientated Programming. This also the first project where we work in teams. We are the Spartans!
 
 Battleships is a game where each player has a board upon which they can place a number of ships. The boards are 10x10 two dimensional grid.
 

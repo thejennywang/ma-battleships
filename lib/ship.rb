@@ -1,6 +1,7 @@
 class Ship
 
 	attr_reader :number_of_hits, :length
+	attr_accessor :position
 
 	DEFAULT_LENGTH = 2
 
