@@ -1,5 +1,6 @@
 require 'board'
 
+
 describe Board do
 
   let(:board) { Board.new }
@@ -7,8 +8,8 @@ describe Board do
 
   it 'Creates a new grid empty by default' do
     board = Board.new
-    board.create_grid(2,2)
-    expect(board.grid_hash).to eq ({A1: nil, A2: nil, B1: nil, B2: nil})
+    board.create_grid(1,1)
+    expect(board.grid_hash[:A1]).to be_an_instance_of Cell
   end
 
   it 'it has a personal board created with a default size of 10 x 10' do
@@ -23,6 +24,12 @@ describe Board do
 
   it 'get the coodinates that the ship take' do
     #what about orientation? not tested here.
+    ship = double :ship, length: 2
+    coordinates = "A1"
+    expect(board.coordinates_to_take(ship, coordinates)).to eq ["A1", "B1"]
+  end
+
+  it 'get the coodinates that the ship take' do
     ship = double :ship, length: 2
     coordinates = "A1"
     expect(board.coordinates_to_take(ship, coordinates)).to eq ["A1", "B1"]

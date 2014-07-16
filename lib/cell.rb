@@ -1,6 +1,4 @@
-class Water
-end
-
+require './lib/water'
 class Cell
 
 	attr_reader :content
@@ -10,6 +8,6 @@ class Cell
 	end
 
 	def attack!
-		@content.attack!
+		@content = @content.attack!
 	end
 end

@@ -1,3 +1,4 @@
+require './lib/cell'
 class Board
 
 	attr_accessor :grid_hash, :tracking, :personal
@@ -11,7 +12,7 @@ class Board
 		@grid_hash = {}
   	(1..x).each do |letter_number|
     	(1..y).each do |number|
-      @grid_hash["#{(letter_number+64).chr}#{number}".to_sym] = nil
+      @grid_hash["#{(letter_number+64).chr}#{number}".to_sym] = Cell.new
     	end
   	end
 	end
