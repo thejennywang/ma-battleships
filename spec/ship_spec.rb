@@ -10,7 +10,7 @@ describe Ship do
     	expect(ship).not_to be_sunk
     end
 
-    it 'can take hits' do
+    it 'can be attacked' do
     	expect(ship.hit).to eq 1
     end
 
