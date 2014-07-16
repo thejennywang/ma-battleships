@@ -19,4 +19,6 @@ describe Cell do
 		cell.attack!
 	end
 
+	
+
 end

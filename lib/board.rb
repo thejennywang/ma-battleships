@@ -1,4 +1,5 @@
 require './lib/cell'
+
 class Board
 
 	attr_accessor :grid_hash, :tracking, :personal
@@ -12,14 +13,14 @@ class Board
 		@grid_hash = {}
   	(1..x).each do |letter_number|
     	(1..y).each do |number|
-      @grid_hash["#{(letter_number+64).chr}#{number}".to_sym] = Cell.new
+      @grid_hash["#{(letter_number+64).chr}#{number}"] = Cell.new
     	end
   	end
 	end
 
-	def coordinates_to_take(ship, coordinates, orientation = 'h')
-		return horizontal(ship, coordinates) if orientation == 'h'
-		vertical(ship, coordinates)
+	def get_coordinates_for(ship, starting_on: coordinates, running: 'horizontal')
+		return horizontal(ship, starting_on) if running == 'horizontal'
+		vertical(ship, starting_on)
 	end
 
 	def horizontal(ship, coordinates)
@@ -32,4 +33,9 @@ class Board
 		(0...ship.length).map { |number| coordinate_letter + (coordinate_number + number).to_s }
 	end
 	
+	def place(ship, coordinates, orientation)
+		get_coordinates_for(ship, starting_on: coordinates, running: orientation).each do |coordinate|
+			grid_hash[coordinate].content = ship
+		end
+	end
 end
