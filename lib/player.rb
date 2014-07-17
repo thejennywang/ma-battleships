@@ -1,5 +1,5 @@
-require './lib/board'
-require './lib/ship'
+require_relative 'board'
+require_relative 'ship'
 
 class Player
 
@@ -7,19 +7,19 @@ class Player
 	attr_accessor :ships
 
 	def initialize(option = {})
-		@ships = [carrier = Ship.carrier, battleship= Ship.battleship, submarine= Ship.submarine, patrol= Ship.patrol]
-		@board = Board.new
-		@name = option.fetch(:name, "player1")
+		@ships = [carrier = Ship.carrier, battleship= Ship.battleship, submarine= Ship.submarine, patrol= Ship.patrol] #this is coupled - change
+		@board = Board.new #this is coupled. Alternative = to pass in board ie def initialize(name,board)
+		@name = option.fetch(:name, "player1") #do we need option = {}?
 	end
 
 	def shoot_at(player, coordinate)
-		player.board.attacked_at(coordinate) 
+		player.board.attacked_at(coordinate)
 	end
 
 	def place(coordinate, orientation)
 		ship = @ships.pop
 		board.place(ship, coordinate, orientation)
-	end
+	end #we don't know which ship we are placing!
 
 end
 
