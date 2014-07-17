@@ -2,25 +2,28 @@ require './lib/cell'
 
 class Board
 
-	attr_accessor :grid_hash, :tracking, :personal
+	attr_accessor :grid
 
 	def initialize(x=10, y=10)
-		@personal = create_grid(x,y)
-		@tracking = create_grid(x,y)
+		@grid = create_grid(x,y)
 	end
 
-	def create_grid(x=10,y=10)
+	def create_grid(x,y)
 		@grid_hash = {}
   	(1..x).each do |letter_number|
     	(1..y).each do |number|
       @grid_hash["#{(letter_number+64).chr}#{number}"] = Cell.new
     	end
   	end
+  	@grid_hash
 	end
 
 	def get_coordinates_for(ship, starting_on: coordinates, running: 'horizontal')
-		return horizontal(ship, starting_on) if running == 'horizontal'
-		vertical(ship, starting_on)
+		if running == 'horizontal'
+			horizontal(ship, starting_on)
+		else 
+			vertical(ship, starting_on)
+		end
 	end
 
 	def horizontal(ship, coordinates)
@@ -35,7 +38,14 @@ class Board
 	
 	def place(ship, coordinates, orientation)
 		get_coordinates_for(ship, starting_on: coordinates, running: orientation).each do |coordinate|
-			grid_hash[coordinate].content = ship
+			grid[coordinate].content = ship if grid.include?(coordinate)
 		end
 	end
+
+	def attacked_at(coordinate)
+		grid[coordinate].attack!
+	end
+
 end
+
+#
