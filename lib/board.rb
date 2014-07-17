@@ -42,10 +42,4 @@ class Board
 		end
 	end
 
-	def attacked_at(coordinate)
-		grid[coordinate].attack!
-	end
-
 end
-
-#
