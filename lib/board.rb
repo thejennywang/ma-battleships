@@ -2,10 +2,11 @@ require './lib/cell'
 
 class Board
 
-	attr_accessor :grid
+	attr_accessor :grid, :coordinate_recorder
 
 	def initialize(x=10, y=10)
 		@grid = create_grid(x,y)
+		@coordinate_recorder ||= []
 	end
 
 	def create_grid(x,y)
@@ -38,7 +39,7 @@ class Board
 
 	def place(ship, coordinates, orientation)
 		get_coordinates_for(ship, starting_on: coordinates, running: orientation).each do |coordinate|
-			grid[coordinate].content = ship if grid.include?(coordinate)
+			grid[coordinate].content = ship
 		end
 	end
 
