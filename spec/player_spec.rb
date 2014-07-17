@@ -24,7 +24,7 @@ let (:player) {Player.new(name: "Michiel")}
 		expect(player.ships.first.length).to eq 5
 	end
 
-	it 'can shoot at each other' do 
+	it 'can shoot at each other' do
 		coordinate = "A2"
 		marco_attacking = Player.new
 		chloe_receiving = Player.new
