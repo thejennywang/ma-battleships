@@ -12,8 +12,8 @@ class Player
 		@name = option.fetch(:name, "player1") #do we need option = {}?
 	end
 
-	def shoot_at(player, coordinate)
-		player.board.attacked_at(coordinate)
+	def shoot_at(opponent, coordinate)
+		opponent.board.attacked_at(coordinate)
 	end
 
 	def place(coordinate, orientation)
@@ -23,3 +23,5 @@ class Player
 
 end
 
+	# jenny.shoot_at(chloe,a1)
+	# chloe.board.attacked_at(a1)

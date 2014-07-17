@@ -48,4 +48,10 @@ describe Board do
     expect(board.grid["B1"].content).to be ship
   end
 
+  it 'can receive an incoming attack' do
+    coordinate = "A1"
+    board.attacked_at(coordinate)
+    expect(board.grid[coordinate].content).to be_an_instance_of Miss
+  end
+
 end

@@ -21,10 +21,8 @@ class Board
 
 	def get_coordinates_for(ship, starting_on: coordinates, running: 'horizontal')
 		if running == 'horizontal'
-			@coordinate_recorder << horizontal(ship, starting_on)
 			horizontal(ship, starting_on)
-		else 
-			@coordinate_recorder << vertical(ship, starting_on)
+		else
 			vertical(ship, starting_on)
 		end
 	end
@@ -38,11 +36,23 @@ class Board
 		coordinate_letter, coordinate_number = coordinates.chars.first, coordinates.chars.last.to_i
 		(0...ship.length).map { |number| coordinate_letter + (coordinate_number + number).to_s }
 	end
-	
+
 	def place(ship, coordinates, orientation)
 		get_coordinates_for(ship, starting_on: coordinates, running: orientation).each do |coordinate|
 			grid[coordinate].content = ship
 		end
 	end
+
+	def attacked_at(coordinate)
+		grid[coordinate].attack!
+	end
+
+
+
+
+
+
+
+
 
 end
