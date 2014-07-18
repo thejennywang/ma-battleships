@@ -61,10 +61,12 @@ class Game
 	# end
 
 	def select_ship_to_be_placed(player)
-		puts "Please #{player.name} select a ship from your remaining ships"
-		puts "The remaining ships are:"
-		puts "#{player.ships.keys}"
-		player.place(delete_ship_from(player, get_ship_name), get_coordinates, get_orientation)
+		until player.ships.empty? do
+			puts "Please #{player.name} select a ship from your remaining ships"
+			puts "The remaining ships are:"
+			puts "#{player.ships.keys}"
+			player.place(delete_ship_from(player, get_ship_name), get_coordinates, get_orientation)
+		end
 	end
 
 	def delete_ship_from(player, ship_name)

@@ -32,7 +32,11 @@ describe Game do
 		allow(game).to receive(:get_ship_name).and_return("carrier").at_least(:twice)
 		allow(game).to receive(:get_coordinates).and_return("A1").at_least(:twice)
 		allow(game).to receive(:get_orientation).and_return("horizontal").at_least(:twice)
+		
+		expect(game).to receive(:select_ship_to_be_placed).with(Player).twice
+
 		game.create_match
+		
 		expect(game.player1).to be_a Player
 		expect(game.player2).to be_a Player
 	end
@@ -54,7 +58,7 @@ describe Game do
 		allow(game).to receive(:get_coordinates).and_return("A1")
 		allow(game).to receive(:get_orientation).and_return("horizontal")
 
-		expect(game.select_ship_to_be_placed(player1)).to eq carrier
+		expect(game.select_ship_to_be_placed(player1)).to eq nil
 	end
 
 	it 'promts for the player to enter ship name' do
