@@ -22,7 +22,7 @@ describe Game do
 		expect(game.set_of_ships["carrier"]).to be_a Ship
 	end
 
-	it 'can create players' do 
+	it 'can create players' do
 		allow(game).to receive(:get_name).and_return("Marco")
 		expect(game.new_player).to be_a Player
 	end
@@ -32,11 +32,11 @@ describe Game do
 		allow(game).to receive(:get_ship_name).and_return("carrier").at_least(:twice)
 		allow(game).to receive(:get_coordinates).and_return("A1").at_least(:twice)
 		allow(game).to receive(:get_orientation).and_return("horizontal").at_least(:twice)
-		
+
 		expect(game).to receive(:select_ship_to_be_placed).with(Player).twice
 
 		game.create_match
-		
+
 		expect(game.player1).to be_a Player
 		expect(game.player2).to be_a Player
 	end
@@ -66,12 +66,16 @@ describe Game do
 		game.get_ship_name
 	end
 
-	it 'selects and delete a ship' do 
+	it 'selects and delete a ship' do
 		ships = double(:ships)
 		player = double(:player, ships: ships)
 
 		expect(ships).to receive(:delete).with("carrier")
 		game.delete_ship_from(player, "carrier")
 	end
+
+	 it 'can print the board' do #this should happen after a shot is taken
+
+  end
 
 end
